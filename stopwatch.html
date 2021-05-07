@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    .a{
+        font-size: xx-large;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        background-color: turquoise;
+    }
+</style>
+
+<script>
+    let x=0;
+    let y=0;
+    let z=0;
+    const milli=()=>{
+        x++;
+        if(x==100)
+        {
+            y++;
+            x=0;
+            document.getElementById("mil").value=z+"    :   "+y+"   :    "+x;
+        }
+        else if(y==60)
+        {
+            z++;
+            y=0;
+            document.getElementById("mil").value=z+"    :   "+y+"   :    "+x;
+        }
+        
+        else{
+            document.getElementById("mil").value=z+"    :   "+y+"   :    "+x;
+        }
+        
+    }
+
+    var a;
+    const start1=()=>{
+        a=setInterval(milli,10);
+        
+    }
+    const pause1=()=>{
+        clearInterval(a);
+    }
+    const reset1=()=>{
+        x=0;
+        y=0;
+        z=0;
+        document.getElementById("mil").value=z+"    :    "+y+"    :    "+x;
+    }
+</script>
+
+<body>
+<br>
+<div style="text-align: center;">
+    <input type="text" id="mil" class="a" size="10"/>
+    <input type="button"  value="Start" onclick="start1();" style="font-size: xx-large;"/>
+    <input type="button"  value="Pause" onclick="pause1();" style="font-size: xx-large;"/>
+    <input type="button"  value="Reset" onclick="reset1();" style="font-size: xx-large;"/>
+</div>
+</body>
+</html>
